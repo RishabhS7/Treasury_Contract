@@ -1,0 +1,537 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_uniswapRouterContractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_uniswapV2FactoryContractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_ilendingpoolContractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_usdcTokenaddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_usdtTokenTokenAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "key",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsWithdrawFromPool",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "usdcbal",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "usdtbal",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsWithdrawnToWallet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "aaveRatio",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "acceptOwnership",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addFundsToAave",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addLiquidityToUniswap",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "calculateAaveYield",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "calculateAggregatedYeild",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "calculateUniswapYeild",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositAndDistributeFunds",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "asset",
+						"type": "address"
+					}
+				],
+				"name": "getCurrentLiquidityRate",
+				"outputs": [
+					{
+						"internalType": "uint128",
+						"name": "",
+						"type": "uint128"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ilendingpool",
+				"outputs": [
+					{
+						"internalType": "contract ILendingPool",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "iuniswapv2router02",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV2Router02",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "newOwner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "onlyDeposit",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_uniRatio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_aaveRatio",
+						"type": "uint256"
+					}
+				],
+				"name": "setRatio",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "uniswapRatio",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "uniswapV2factory",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV2Factory",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdcTokenAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usdtTokenAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawAllToWallet",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "key",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawFromPool",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TreasuryContract/treasurycontract.sol": "Treasury"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/TreasuryContract/interfaces/IERC20.sol": {
+			"keccak256": "0x81addeb07a8c9b280030f44c280698c724bcd5bad894c843358f2b6ee456cdca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://81ed3d0670b3124da4acf1facb7549cc879ebf9fe656d3989686b78c26e91281",
+				"dweb:/ipfs/QmeRhx74xcreQpLrjUeZr7NdGjp2SvPBCjRZxNT7ig3JFc"
+			]
+		},
+		"contracts/TreasuryContract/interfaces/ILendingPool.sol": {
+			"keccak256": "0x43c65026d853e6ef16b05d11722335548a1309a76fe51d1be937f389f5b23cc6",
+			"license": "AGPL-3.0",
+			"urls": [
+				"bzz-raw://045556a9ed22c7e23592e69642007aa163d77fafae64c170b9a4011353bc22fc",
+				"dweb:/ipfs/QmZLCRgGe1bRkzUVyqcW311C3gALxZhPa3ND6FBe9CTXws"
+			]
+		},
+		"contracts/TreasuryContract/interfaces/IUniswapV2Router01.sol": {
+			"keccak256": "0x89418555a5c36a004e9792d7a5df11181401fb4267dc1945f1e50cbe836518a0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://87f9571488a1fe669c9fa44a6c1f7739bfbdfff2cf928b28c6ebf13ff5a4a48d",
+				"dweb:/ipfs/QmZM2wj6aRMdzXRCAcp78efmkTcoKtBSre2T8Gi5Y2A9p9"
+			]
+		},
+		"contracts/TreasuryContract/interfaces/IUniswapV2Router02.sol": {
+			"keccak256": "0x0b7b83885ba77c7fa9ace9f3206e455c4df992794b17377778afe1ac911f69ec",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://00ea0130f35d4a8fb658292875a302b3845c24878f6a84c1f21b5dca3a023a2d",
+				"dweb:/ipfs/QmUWhu8JnfAnsxeJrW4mRYiwxH74VNMNN3ixYkzpFAhhXJ"
+			]
+		},
+		"contracts/TreasuryContract/interfaces/UniswapV2Factory.sol": {
+			"keccak256": "0x558820374c3631ab07c17a32a9d99c22fa9071a87dc3bb4087286d6a36521b1c",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://89bc6616e3a41b29c913dca1f56e509c953a6d617a72535a3e6987001d579425",
+				"dweb:/ipfs/QmddPTfYvdJDXkREay2Dh6cH3pvvCbYzGjyH5QhLArhzRr"
+			]
+		},
+		"contracts/TreasuryContract/lib/Ownable.sol": {
+			"keccak256": "0xb288e2547439a280624a8e22e821244801ede1d5eb6b0d8f6da510b4ca7c61c3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://704ab2ae8692ace7f1f8c7ebfb6b941dfe0510dd3e6f638d3af8454f0eb6cea0",
+				"dweb:/ipfs/QmbRV7rWBKTJLMCvpEKdAbmKx2JCEqZi5C42sKujFBZfw2"
+			]
+		},
+		"contracts/TreasuryContract/treasurycontract.sol": {
+			"keccak256": "0xc98de2d954f0f09c5606674b98fbca9205106b88d9ae2114e1f7bfefb2bd0891",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5904d93b7d4aa987558e8992555212335f65b52734db7c68874c2e1156f45640",
+				"dweb:/ipfs/QmR4NwuCNR6uuBUYePbXDfiUJc8DkLDwWvG5BLxbBVZgR2"
+			]
+		}
+	},
+	"version": 1
+}
